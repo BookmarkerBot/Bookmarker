@@ -91,7 +91,7 @@ export default class BookmarkCommand extends Command {
 								icon_url: avatarUrl
 							},
 							footer: {
-								text: `${fetchedGuild ? `${fetchedGuild.name} (${fetchedGuild.id})` : `Your DMs with ${resolvedTargetMessage.author.username} (${resolvedTargetMessage.author.id})`}`,
+								text: `${interaction.guild ? `${interaction.guild.name} (${interaction.guild.id})` : `Your DMs with ${resolvedTargetMessage.author.username} (${resolvedTargetMessage.author.id})`}`,
 								icon_url: guildIconUrl
 							},
 							url: jumpToUrl
