@@ -22,3 +22,5 @@ jobs:
           DISCORD_CLIENT_ID=${{ secrets.DISCORD_CLIENT_ID }}
           DISCORD_PUBLIC_KEY=${{ secrets.DISCORD_PUBLIC_KEY }}
           DISCORD_BOT_TOKEN=${{ secrets.DISCORD_BOT_TOKEN }}
+    env:
+      ENVIRONMENT: "production"

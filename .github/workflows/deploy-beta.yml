@@ -22,3 +22,5 @@ jobs:
           DISCORD_CLIENT_ID=${{ secrets.BETA_DISCORD_CLIENT_ID }}
           DISCORD_PUBLIC_KEY=${{ secrets.BETA_DISCORD_PUBLIC_KEY }}
           DISCORD_BOT_TOKEN=${{ secrets.BETA_DISCORD_BOT_TOKEN }}
+    env:
+      ENVIRONMENT: "beta"
