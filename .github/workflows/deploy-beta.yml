@@ -17,10 +17,10 @@ jobs:
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         secrets: |
-          BASE_URL=${{ secrets.BETA_BASE_URL }}
-          DEPLOY_SECRET=${{ secrets.BETA_DEPLOY_SECRET }}
-          DISCORD_CLIENT_ID=${{ secrets.BETA_DISCORD_CLIENT_ID }}
-          DISCORD_PUBLIC_KEY=${{ secrets.BETA_DISCORD_PUBLIC_KEY }}
-          DISCORD_BOT_TOKEN=${{ secrets.BETA_DISCORD_BOT_TOKEN }}
+          BETA_BASE_URL=${{ secrets.BETA_BASE_URL }}
+          BETA_DEPLOY_SECRET=${{ secrets.BETA_DEPLOY_SECRET }}
+          BETA_DISCORD_CLIENT_ID=${{ secrets.BETA_DISCORD_CLIENT_ID }}
+          BETA_DISCORD_PUBLIC_KEY=${{ secrets.BETA_DISCORD_PUBLIC_KEY }}
+          BETA_DISCORD_BOT_TOKEN=${{ secrets.BETA_DISCORD_BOT_TOKEN }}
     env:
       ENVIRONMENT: beta
