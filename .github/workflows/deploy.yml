@@ -11,6 +11,7 @@ jobs:
     name: Deploy to Bookmarker Production
     steps:
     - uses: actions/checkout@v4
+    - uses: oven-sh/setup-bun@v2
     - name: Deploy to Bookmarker Production
       uses: cloudflare/wrangler-action@v3
       with:
