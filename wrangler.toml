@@ -1,6 +1,6 @@
 name = "bookmarker"
 main = "src/entry.ts"
-compatibility_date = "2025-02-04"
+compatibility_date = "2025-06-17"
 account_id = "575c5711293e5f7ab8e8edeb1e30fd45"
 
 [observability]

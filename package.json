@@ -1,19 +1,26 @@
 {
 	"name": "bookmarker",
-	"private": true,
+	"version": "1.0.0",
+	"author": {
+		"name": "Codeize",
+		"url": "https://github.com/Codeize"
+	},
+	"description": "Bookmarker is a Discord bot built with [Carbon](https://github.com/buape/carbon) by [Codeize](https://github.com/Codeize) that allows users to bookmark messages they find interesting or important, making it easy to revisit them later.",
+	"main": "dist/index.js",
 	"type": "module",
-	"main": "./src/index.ts",
 	"scripts": {
 		"dev": "wrangler dev --port 3000",
 		"deploy": "wrangler deploy",
-		"wrangler": "wrangler"
+		"wrangler": "wrangler",
+		"pretty": "biome check . --write"
 	},
 	"dependencies": {
-		"@buape/carbon": "^0.0.0-beta-20250204223027"
+		"@buape/carbon": "0.9.0",
+		"strip-indent": "^4.0.0"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20250313.0",
-		"typescript": "5.7.3",
-		"wrangler": "4.0.0"
+		"@cloudflare/workers-types": "4.20250705.0",
+		"typescript": "5.8.3",
+		"wrangler": "4.23.0"
 	}
 }
