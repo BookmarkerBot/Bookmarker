@@ -8,6 +8,7 @@ import {
 	type CommandInteraction,
 	Embed,
 	LinkButton,
+	MessageFlags,
 	Modal,
 	type ModalInteraction,
 	Row,
@@ -395,6 +396,7 @@ class ControlMobileViewButton extends Button {
 		return interaction
 			.reply({
 				content: originalMessageEmbed.description,
+				flags: MessageFlags.Ephemeral,
 			})
 			.catch(console.error);
 	}
