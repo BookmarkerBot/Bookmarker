@@ -293,12 +293,12 @@ class ControlRepostBookmarkButton extends Button {
 }
 
 class ControlAddNoteButton extends Button {
-	label = "";
+	label = "Note";
 	emoji = {
 		name: "memo",
 		id: "1407061480334954497",
 	};
-	style = 2;
+	style = 1;
 	customId = "bookmark-add-note";
 
 	async run(interaction: ButtonInteraction) {
@@ -381,12 +381,12 @@ class ControlAddNoteModalInput extends TextInput {
 }
 
 class ControlMobileViewButton extends Button {
-	label = "";
+	label = "Mobile View";
 	emoji = {
 		name: "mobilephone",
 		id: "1407062023879262281",
 	};
-	style = 2;
+	style = 1;
 	customId = "bookmark-mobile-view";
 
 	async run(interaction: ButtonInteraction) {
@@ -409,7 +409,7 @@ class ControlDeleteMediaButton extends Button {
 	emoji = {
 		name: "x_",
 		id: "1407060523161223189",
-	}
+	};
 	style = 2;
 	customId = "bookmark-delete-media";
 
