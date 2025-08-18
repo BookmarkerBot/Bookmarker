@@ -285,7 +285,6 @@ class ControlRepostBookmarkButton extends Button {
 				components: [new Row([...MAIN_MENU_BUTTONS(jumpToUrl)])],
 			})
 			.catch(console.error);
-		await interaction.message.delete().catch(console.error);
 		return interaction.acknowledge();
 	}
 }
