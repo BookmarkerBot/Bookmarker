@@ -52,6 +52,7 @@ export default class BookmarkCommand extends Command {
 		new ControlRepostBookmarkButton(),
 		new ControlAddNoteButton(),
 		new ControlMobileViewButton(),
+		new ControlDeleteMediaButton(),
 		new BlueColorButton(),
 		new RedColorButton(),
 		new GreenColorButton(),
@@ -128,6 +129,7 @@ export default class BookmarkCommand extends Command {
 						await dmMsg
 							.reply({
 								content: attachment.url,
+								components: [new Row([new ControlDeleteMediaButton()])],
 							})
 							.catch(console.error);
 					}
@@ -399,6 +401,22 @@ class ControlMobileViewButton extends Button {
 				flags: MessageFlags.Ephemeral,
 			})
 			.catch(console.error);
+	}
+}
+
+class ControlDeleteMediaButton extends Button {
+	label = "";
+	emoji = {
+		name: "x_",
+		id: "1407060523161223189",
+	}
+	style = 2;
+	customId = "bookmark-delete-media";
+
+	async run(interaction: ButtonInteraction) {
+		if (!interaction.message) return;
+		await interaction.message.delete();
+		return interaction.acknowledge();
 	}
 }
 
