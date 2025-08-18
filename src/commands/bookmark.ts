@@ -169,7 +169,11 @@ class BookmarkSuccessJumpToButton extends LinkButton {
 		super();
 		this.url = url;
 	}
-	label = "🔗";
+	label = "";
+	emoji = {
+		name: "link",
+		id: "1407060346576965762",
+	};
 	url;
 }
 
@@ -178,12 +182,20 @@ class ControlLinkToMessageButton extends LinkButton {
 		super();
 		this.url = url;
 	}
-	label = "🔗";
+	label = "";
+	emoji = {
+		name: "link",
+		id: "1407060346576965762",
+	};
 	url;
 }
 
 class ControlColorPickerButton extends Button {
-	label = "🪄";
+	label = "";
+	emoji = {
+		name: "magicwand",
+		id: "1407060162795278449",
+	};
 	style = 2;
 	customId = "bookmark-color-picker";
 
@@ -211,7 +223,11 @@ class ControlColorPickerButton extends Button {
 }
 
 class ControlDeleteBookmarkButton extends Button {
-	label = "❌";
+	label = "";
+	emoji = {
+		name: "x_",
+		id: "1407060523161223189",
+	};
 	style = 2;
 	customId = "bookmark-delete";
 
@@ -275,7 +291,11 @@ class ControlRepostBookmarkButton extends Button {
 }
 
 class ControlAddNoteButton extends Button {
-	label = "📝";
+	label = "";
+	emoji = {
+		name: "memo",
+		id: "1407061480334954497",
+	};
 	style = 2;
 	customId = "bookmark-add-note";
 
@@ -359,7 +379,11 @@ class ControlAddNoteModalInput extends TextInput {
 }
 
 class ControlMobileViewButton extends Button {
-	label = "📱";
+	label = "";
+	emoji = {
+		name: "mobilephone",
+		id: "1407062023879262281",
+	};
 	style = 2;
 	customId = "bookmark-mobile-view";
 
