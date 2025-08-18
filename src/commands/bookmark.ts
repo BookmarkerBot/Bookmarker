@@ -414,6 +414,9 @@ class BlueColorButton extends Button {
 		const originalMessageEmbed = interaction.message.embeds[0];
 		if (!originalMessageEmbed) return;
 
+		const jumpToUrl = originalMessageEmbed.url;
+		if (!jumpToUrl) return;
+
 		await interaction.message
 			.edit({
 				embeds: [
@@ -426,6 +429,7 @@ class BlueColorButton extends Button {
 					}),
 					...interaction.message.embeds.slice(1),
 				],
+				components: [new Row([...MAIN_MENU_BUTTONS(jumpToUrl)])],
 			})
 			.catch(console.error);
 		return interaction.acknowledge();
@@ -446,6 +450,9 @@ class RedColorButton extends Button {
 		const originalMessageEmbed = interaction.message.embeds[0];
 		if (!originalMessageEmbed) return;
 
+		const jumpToUrl = originalMessageEmbed.url;
+		if (!jumpToUrl) return;
+
 		await interaction.message
 			.edit({
 				embeds: [
@@ -458,6 +465,7 @@ class RedColorButton extends Button {
 					}),
 					...interaction.message.embeds.slice(1),
 				],
+				components: [new Row([...MAIN_MENU_BUTTONS(jumpToUrl)])],
 			})
 			.catch(console.error);
 
@@ -479,6 +487,9 @@ class GreenColorButton extends Button {
 		const originalMessageEmbed = interaction.message.embeds[0];
 		if (!originalMessageEmbed) return;
 
+		const jumpToUrl = originalMessageEmbed.url;
+		if (!jumpToUrl) return;
+
 		await interaction.message
 			.edit({
 				embeds: [
@@ -491,6 +502,7 @@ class GreenColorButton extends Button {
 					}),
 					...interaction.message.embeds.slice(1),
 				],
+				components: [new Row([...MAIN_MENU_BUTTONS(jumpToUrl)])],
 			})
 			.catch(console.error);
 
@@ -512,6 +524,9 @@ class YellowColorButton extends Button {
 		const originalMessageEmbed = interaction.message.embeds[0];
 		if (!originalMessageEmbed) return;
 
+		const jumpToUrl = originalMessageEmbed.url;
+		if (!jumpToUrl) return;
+
 		await interaction.message
 			.edit({
 				embeds: [
@@ -524,6 +539,7 @@ class YellowColorButton extends Button {
 					}),
 					...interaction.message.embeds.slice(1),
 				],
+				components: [new Row([...MAIN_MENU_BUTTONS(jumpToUrl)])],
 			})
 			.catch(console.error);
 
@@ -545,6 +561,9 @@ class FuchsiaColorButton extends Button {
 		const originalMessageEmbed = interaction.message.embeds[0];
 		if (!originalMessageEmbed) return;
 
+		const jumpToUrl = originalMessageEmbed.url;
+		if (!jumpToUrl) return;
+
 		await interaction.message
 			.edit({
 				embeds: [
@@ -557,6 +576,7 @@ class FuchsiaColorButton extends Button {
 					}),
 					...interaction.message.embeds.slice(1),
 				],
+				components: [new Row([...MAIN_MENU_BUTTONS(jumpToUrl)])],
 			})
 			.catch(console.error);
 
