@@ -370,7 +370,7 @@ class ControlAddNoteModal extends Modal {
 class ControlAddNoteModalInput extends TextInput {
 	customId = "bookmark-add-note-input";
 	label = "Your note";
-	required = true;
+	required = false;
 	style = TextInputStyle.Paragraph;
 	value: string;
 
