@@ -330,11 +330,6 @@ class ControlAddNoteModal extends Modal {
 
 	async run(interaction: ModalInteraction) {
 		const note = interaction.fields.getText("bookmark-add-note-input");
-		if (!note) {
-			return interaction.reply({
-				content: "You must provide a note.",
-			});
-		}
 
 		if (!interaction.message) return;
 		const originalMessageEmbed = interaction.message.embeds[0];
@@ -347,14 +342,16 @@ class ControlAddNoteModal extends Modal {
 
 		const updatedEmbed = new Embed({
 			...originalMessageEmbed.serialize(),
-			fields: [
-				...filteredFields,
-				{
-					name: `Note`,
-					value: note,
-					inline: false,
-				},
-			],
+			fields: note
+				? [
+						...filteredFields,
+						{
+							name: `Note`,
+							value: note,
+							inline: false,
+						},
+					]
+				: filteredFields,
 		});
 
 		await interaction.message
