@@ -3,7 +3,7 @@ name: Deploy to Bookmarker Production
 on:
   push:
     branches:
-    - main
+    - prod
 
 jobs:
   deploy:
