@@ -2,6 +2,7 @@ import { Client } from "@buape/carbon";
 import { createHandler } from "@buape/carbon/adapters/fetch";
 import BookmarkCommand from "./commands/bookmark.js";
 import HelpCommand from "./commands/help.js";
+import DeleteOldBookmarksCommand from "./commands/delete-old-bookmarks.js";
 import ApplicationAuthorized from "./events/authorized.js";
 
 const isBeta = process.env.ENVIRONMENT === "beta";
@@ -24,7 +25,11 @@ const client = new Client(
 		devGuilds: process.env.DISCORD_DEV_GUILDS?.split(","),
 	},
 	{
-		commands: [new BookmarkCommand(), new HelpCommand()],
+		commands: [
+			new BookmarkCommand(),
+			new HelpCommand(),
+			new DeleteOldBookmarksCommand(),
+		],
 		listeners: [new ApplicationAuthorized()],
 	},
 );
