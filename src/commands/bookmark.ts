@@ -390,6 +390,94 @@ class ControlMobileViewButton extends Button {
 		if (!interaction.message) return;
 
 		const originalMessageEmbed = interaction.message.embeds[0];
+		const bookmarkIsEmbed = interaction.message.embeds.length > 1;
+		if (bookmarkIsEmbed) {
+			const extractAllContentFromEmbeds = interaction.message.embeds
+				.map((embed, _index) => {
+					let content = "";
+
+					if (embed.title) {
+						content += `**${embed.title}**\n`;
+					}
+					if (embed.description) {
+						content += `${embed.description}\n`;
+					}
+					if (embed.fields && embed.fields.length > 0) {
+						content += "\n";
+						embed.fields.forEach((field) => {
+							content += `**${field.name}**\n${field.value}\n\n`;
+						});
+					}
+					if (embed.footer) {
+						content += `*${embed.footer.text}*\n`;
+					}
+
+					return content.trim();
+				})
+				.filter((content) => content.length > 0)
+				.join("\n\n---\n\n");
+
+			const maxLength = 2000;
+			const content =
+				extractAllContentFromEmbeds || "No content available for mobile view.";
+
+			if (content.length <= maxLength) {
+				return interaction
+					.reply({
+						content,
+						flags: MessageFlags.Ephemeral,
+					})
+					.catch((e) => {
+						console.error(e);
+						return interaction.reply({
+							content: "Failed to extract content for mobile view.",
+							flags: MessageFlags.Ephemeral,
+						});
+					});
+			}
+
+			const chunks: string[] = [];
+			let currentChunk = "";
+			const lines = content.split("\n");
+
+			for (const line of lines) {
+				if (currentChunk.length + line.length + 1 > maxLength) {
+					if (currentChunk.trim()) {
+						chunks.push(currentChunk.trim());
+					}
+					currentChunk = line;
+				} else {
+					currentChunk += (currentChunk ? "\n" : "") + line;
+				}
+			}
+
+			if (currentChunk.trim()) {
+				chunks.push(currentChunk.trim());
+			}
+
+			return interaction
+				.reply({
+					content: chunks[0],
+					flags: MessageFlags.Ephemeral,
+				})
+				.then(async () => {
+					for (let i = 1; i < chunks.length; i++) {
+						await interaction
+							.followUp({
+								content: chunks[i],
+								flags: MessageFlags.Ephemeral,
+							})
+							.catch(console.error);
+					}
+				})
+				.catch((e) => {
+					console.error(e);
+					return interaction.reply({
+						content: "Failed to extract content for mobile view.",
+						flags: MessageFlags.Ephemeral,
+					});
+				});
+		}
 		if (!originalMessageEmbed) return;
 
 		return interaction
